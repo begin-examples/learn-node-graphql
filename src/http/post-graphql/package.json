@@ -1,0 +1,10 @@
+{
+  "name": "post-graphql",
+  "dependencies": {
+    "@architect/functions": "^3.5.1",
+    "@begin/data": "^1.1.5",
+    "graphql": "^14.6.0",
+    "graphql-tools": "^4.0.6",
+    "xss": "^1.0.6"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "learn-node-graphql",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "ARC_STATIC_SPA=false npx sandbox"
+  },
+  "dependencies": {
+    "@architect/sandbox": "latest"
+  }
+}
