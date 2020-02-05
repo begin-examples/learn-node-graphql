@@ -1,3 +1,4 @@
+// mutations require req.session.account
 module.exports = async function auth(req) {
 
   let client_id = process.env.GITHUB_CLIENT_ID
@@ -5,7 +6,6 @@ module.exports = async function auth(req) {
   let base = `https://github.com/login/oauth/authorize`
   let href = `${base}?client_id=${client_id}&redirect_uri=${redirect_uri}`
 
-  // mutations require login
   if (!req.session.account && req.body.query.startsWith('mutation')) {
     return {
       statusCode: 403, 

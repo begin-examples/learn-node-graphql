@@ -1,0 +1,23 @@
+type Account {
+  id: ID!
+  name: String
+  avatar: String
+  login: String
+}
+
+type Draft {
+  key: ID!
+  title: String
+  body: String
+}
+
+type Query {
+  draft(key: String): Draft
+  drafts(cursor: String): [Draft] 
+}
+
+type Mutation {
+  account: Account
+  save(title: String!, body: String!): Draft
+  destroy(key: String!): Boolean
+}

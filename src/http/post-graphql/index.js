@@ -1,11 +1,5 @@
 let arc = require('@architect/functions')
-let query = require('./query')
-let auth = require('./auth')
+let query = require('./middleware/query')
+let auth = require('./middleware/auth')
 
-async function graphql(req) {
-  return { 
-    json: await query(req)  
-  }
-}
-
-exports.handler = arc.http.async(auth, graphql)
+exports.handler = arc.http.async(auth, query)
