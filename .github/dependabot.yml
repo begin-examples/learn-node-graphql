@@ -5,3 +5,18 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 99
+- package-ecosystem: npm
+  directory: "/src/http/get-login/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 99
+- package-ecosystem: npm
+  directory: "/src/http/post-graphql/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 99
+- package-ecosystem: npm
+  directory: "/src/http/post-logout/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 99
