@@ -1,6 +1,6 @@
 {
   "name": "post-logout",
   "dependencies": {
-    "@architect/functions": "^3.5.1"
+    "@architect/functions": "^4.0.0"
   }
 }
