@@ -2,7 +2,7 @@
   "name": "post-graphql",
   "dependencies": {
     "@architect/functions": "^3.5.1",
-    "@begin/data": "^1.1.5",
+    "@begin/data": "^3.0.0",
     "graphql": "^14.6.0",
     "graphql-tools": "^7.0.1",
     "xss": "^1.0.6"
