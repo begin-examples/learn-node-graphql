@@ -1,11 +1,11 @@
 let arc = require('@architect/functions')
 let github = require('./github')
 
-async function login(req) {
+async function login (req) {
   if (req.query.code) {
     let account = await github(req)
     return {
-      session: {account},
+      session: { account },
       location: '/'
     }
   }

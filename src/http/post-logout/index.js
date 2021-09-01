@@ -1,6 +1,6 @@
 let arc = require('@architect/functions')
 
-async function logout(req) {
+async function logout () {
   return {
     session: {},
     location: '/'
