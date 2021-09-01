@@ -1,5 +1,5 @@
 // mutations require req.session.account
-module.exports = async function auth(req) {
+module.exports = async function auth (req) {
 
   let client_id = process.env.GITHUB_CLIENT_ID
   let redirect_uri = process.env.GITHUB_REDIRECT

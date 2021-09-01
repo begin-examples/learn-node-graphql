@@ -1,11 +1,11 @@
 let tiny = require('tiny-json-http')
 
-module.exports = async function github(req) {
+module.exports = async function github (req) {
 
   // trade the code for an access token
   let result = await tiny.post({
     url: 'https://github.com/login/oauth/access_token',
-    headers: {Accept: 'application/json'},
+    headers: { accept: 'application/json' },
     data: {
       code: req.query.code,
       client_id: process.env.GITHUB_CLIENT_ID,
@@ -19,7 +19,7 @@ module.exports = async function github(req) {
   // use the access token to get the user account
   let user = await tiny.get({
     url: `https://api.github.com/user?access_token=${token}`,
-    headers: {Accept: 'application/json'},
+    headers: { accept: 'application/json' },
   })
 
   // create a clean acccount obj

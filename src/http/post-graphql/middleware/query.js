@@ -11,8 +11,8 @@ let { account, draft, drafts, save, destroy } = require('../resolvers')
 let typeDefs = fs.readFileSync(path.join(__dirname, '..', 'schema.graphql')).toString()
 
 // 3. combine resolvers and schema
-let schema = makeExecutableSchema({ 
-  typeDefs, 
+let schema = makeExecutableSchema({
+  typeDefs,
   resolvers: {
     Query: { draft, drafts },
     Mutation: { account, save, destroy }
@@ -20,15 +20,15 @@ let schema = makeExecutableSchema({
 })
 
 /** graphql middleware */
-module.exports = async function query(req) {
+module.exports = async function query (req) {
   try {
-    let result = await graphql(schema, req.body.query, {}, req.session, req.body.variables, req.body.operationName)  
-    return { 
+    let result = await graphql(schema, req.body.query, {}, req.session, req.body.variables, req.body.operationName)
+    return {
       json: result
     }
   }
-  catch(e) {
-    return { 
+  catch (e) {
+    return {
       json: { error: e.name, message: e.message, stack: e.stack }
     }
   }

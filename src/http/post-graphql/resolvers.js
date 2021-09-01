@@ -9,7 +9,7 @@ module.exports = {
   destroy
 }
 
-async function account(root, args, session) {
+async function account (root, args, session) {
   if (!session.account)
     throw Error('not authorized')
   let copy = session.account
@@ -17,23 +17,23 @@ async function account(root, args, session) {
   return copy
 }
 
-async function draft(root, args, session) {
-  return await data.get({
-    table: 'drafts', 
+async function draft (root, args) {
+  return data.get({
+    table: 'drafts',
     ...args
   })
 }
 
-async function drafts(root, args, session) {
-  return await data.get({
-    table: 'drafts', 
+async function drafts () {
+  return data.get({
+    table: 'drafts',
   })
 }
 
-async function save(root, draft, session) {
+async function save (root, draft, session) {
   if (!session.account)
     throw Error('not authorized')
-  let required = ['title', 'body']//, 'author', 'avatar']
+  let required = [ 'title', 'body' ]// , 'author', 'avatar']
   for (let param of required) {
     if (!draft[param])
       throw ReferenceError(`missing param ${param}`)
@@ -44,17 +44,17 @@ async function save(root, draft, session) {
   draft.avatar = session.account.avatar
   draft.title = xss(draft.title)
   draft.body = xss(draft.body)
-  return await data.set({
-    table: 'drafts', 
+  return data.set({
+    table: 'drafts',
     ...draft
   })
 }
 
-async function destroy(root, draft, session) {
+async function destroy (root, draft, session) {
   if (!session.account)
     throw Error('not authorized')
-  return await data.destroy({
-    table: 'drafts', 
+  return data.destroy({
+    table: 'drafts',
     ...draft
   })
 }
